@@ -1,10 +1,11 @@
 {
   "name": "my-first-graphql-api",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev:simple": "ts-node-dev --respawn --transpile-only src/simple-server.ts"
+    "dev:simple": "ts-node-dev --respawn --transpile-only src/simple-server.ts",
+    "start": "ts-node-dev --respawn --transpile-only src/server.ts"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,9 @@
   },
   "dependencies": {
     "apollo-server": "^3.10.2",
-    "graphql": "^16.6.0"
+    "class-validator": "^0.13.2",
+    "graphql": "^15.8.0",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.1.1"
   }
 }
