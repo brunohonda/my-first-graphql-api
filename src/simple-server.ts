@@ -1,14 +1,39 @@
 import { ApolloServer, gql } from 'apollo-server';
 
+interface User {
+    id: number;
+    name: string;
+}
+
+const users: User[] = [];
+
 const typeDefs = gql`
+    type User {
+        id: Int!
+        name: String!
+    }
+
     type Query {
-        helloWorld: String!
+        users: [User!]!
+    }
+
+    type Mutation {
+        createUser(name: String!): String!
     }
 `;
 
 const resolvers = {
     Query: {
-        helloWorld: () => 'Hello World!!!'
+        users: () => users
+    },
+
+    Mutation: {
+        createUser: (_: any, args: any) => {
+            const id = users.length + 1;
+            const { name } = args;
+            users.push({ id, name });
+            return name;
+        }
     }
 }
 
